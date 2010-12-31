@@ -1,0 +1,37 @@
+.void CG_DrawOldTourneyScoreboard( void ) {
+	const char		*s;
+	vec4_t			color;
+	int				min, tens, ones;
+	clientInfo_t	*ci;
+	int				y;
+	int				i;
+
+.	if ( cg.scoresRequestTime + 2000 < cg.time ) {
+		cg.scoresRequestTime = cg.time;
+		trap_SendClientCommand( "score" );
+	}
+
+	color[0] = 1;
+	color[1] = 1;
+	color[2] = 1;
+	color[3] = 1;
+
+	color[0] = color[1] = color[2] = 0;
+	color[3] = 1;
+.	CG_FillRect( 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, color );
+
+	s = CG_ConfigString( CS_MOTD );
+	if ( !s[0] ) {
+		s = "Scoreboard";
+	}
+
+	CG_CenterGiantLine( 8, s );
+
+.	ones = cg.time / 1000;
+	min = ones / 60;
+	ones %= 60;
+	tens = ones / 10;
+	ones %= 10;
+	s = va("%i:%i%i", min, tens, ones );
+
+	CG_CenterGiantLine( 64, s );

@@ -1,0 +1,17 @@
+TODO
+
+## high priority ##
+-better window placement strategy (ie more than just random).
+
+## medium priority ##
+-better code snipets.
+-variable window sizes.
+-configerable max console windows.
+
+## low priority ##
+-line in txt file that triggers a wait?
+-way to have only part of a line "typed", so prompt can just appear?
+
+## known bugs ##
+-does not work with wine.
+-does not work with RK launcher.

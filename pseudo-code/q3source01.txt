@@ -1,0 +1,51 @@
+.*/
+.static void CG_TouchTriggerPrediction( void ) {
+	int			i;
+	trace_t		trace;
+	entityState_t	*ent;
+	clipHandle_t cmodel;
+	centity_t	*cent;
+	qboolean	spectator;
+
+	// dead clients don't activate triggers
+	if ( cg.predictedPlayerState.stats[STAT_HEALTH] <= 0 ) {
+		return;
+	}
+
+	spectator = ( cg.predictedPlayerState.pm_type == PM_SPECTATOR );
+
+	if ( cg.predictedPlayerState.pm_type != PM_NORMAL && !spectator ) {
+		return;
+	}
+
+	for ( i = 0 ; i < cg_numTriggerEntities ; i++ ) {
+		cent = cg_triggerEntities[ i ];
+		ent = &cent->currentState;
+
+		if ( ent->eType == ET_ITEM && !spectator ) {
+			CG_TouchItem( cent );
+			continue;
+		}
+
+		if ( ent->solid != SOLID_BMODEL ) {
+			continue;
+		}
+
+		cmodel = trap_CM_InlineModel( ent->modelindex );
+		if ( !cmodel ) {
+			continue;
+		}
+
+		trap_CM_BoxTrace( &trace, cg.predictedPlayerState.origin, cg.predictedPlayerState.origin, 
+			cg_pmove.mins, cg_pmove.maxs, cmodel, -1 );
+
+		if ( !trace.startsolid ) {
+			continue;
+		}
+
+		if ( ent->eType == ET_TELEPORT_TRIGGER ) {
+			cg.hyperspace = qtrue;
+.		} else if ( ent->eType == ET_PUSH_TRIGGER ) {
+.			BG_TouchJumpPad( &cg.predictedPlayerState, ent );
+.		}
+	}

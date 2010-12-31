@@ -1,0 +1,21 @@
+.*/
+.static void CG_TouchItem( centity_t *cent ) {
+	gitem_t		*item;
+
+	if ( !cg_predictItems.integer ) {
+		return;
+	}
+	if ( !BG_PlayerTouchesItem( &cg.predictedPlayerState, &cent->currentState, cg.time ) ) {
+		return;
+	}
+
+	// never pick an item up twice in a prediction
+	if ( cent->miscTime == cg.time ) {
+		return;
+	}
+
+	if ( !BG_CanItemBeGrabbed( cgs.gametype, &cent->currentState, &cg.predictedPlayerState ) ) {
+		return;		// can't hold it
+	}
+
+	item = &bg_itemlist[ cent->currentState.modelindex ];

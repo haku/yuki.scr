@@ -1,0 +1,11 @@
+admin@localhost /
+$ df -h
+Filesystem            Size  Used Avail Use% Mounted on
+C:\software\cygwin\bin
+                       28G   24G  4.2G  86% /usr/bin
+C:\software\cygwin\lib
+                       28G   24G  4.2G  86% /usr/lib
+C:\software\cygwin     28G   24G  4.2G  86% /
+c:                     28G   24G  4.2G  86% /cygdrive/c
+d:                     59G   50G  8.8G  85% /cygdrive/d
+h:                    466G  433G   33G  93% /cygdrive/h

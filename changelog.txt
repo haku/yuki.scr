@@ -1,0 +1,28 @@
+version 0.04
+-add: line starting "," will have the same effect as ".", but will not bring the window to the foreground.
+-correction: typing error in folder name: "psudo" to "pseudo".
+-change: tweeked preferences window.
+-fix: cancel button on preferences window actually does something.
+-add: console colours are changeable.
+-add: propper programme icons (taken from cmd.exe).
+
+version 0.03
+-add: more code files.  lots from the IOCCC.  also lots provided by anon of /w/.
+-change: when consol text boxes fill, for simplicity they clear completly instead of pruning off the top.
+-add: option to increases its own process priority (should reduce lag).
+-add: option to not show the yuki typing animation.
+-add: multiple monitor support.  code windows will appear on any monitor, though the animation will always remain on the first.
+
+version 0.02
+-fixed: major memory leak (forms are no longer created and distroyed, but shown and hidden.  work-around until i work out why destroying a form does not completly free the memory.)
+
+version 0.01
+-added: animation moves every 300 seconds to another corner at random.
+-added: code windows don't overlap animation.
+-changed: code scrolls faster.
+-changed: code windows are wider.
+-added: more txt files.
+-fixed: fixed a lot of bugs.
+
+version 0.00
+-added: everything.

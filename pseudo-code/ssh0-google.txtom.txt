@@ -1,0 +1,46 @@
+.D:\scripts.win32>ssh -p12354 admin@google.com -L 35765:localhost:36666
+Warning: Permanently added the RSA host key for IP address '[972.14.207.99]:12354 to the list of known hosts.
+Enter passphrase for key '/home/Admin/.ssh/id_dsa':
+.**********************
+Linux google.com 2.6.20-15-server #2 SMP Sun Apr 15 07:41:34 UTC 2007 i686
+
+The programs included with the gUbuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+gUbuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+Last login: Thu Mar 13 15:48:00 2008 from 123.234.221.143
+.admin@google.com:~$ cd /
+.admin@google.com:/$ ls -la
+total 81
+drwxr-xr-x 21 root root  4096 2007-07-18 21:30 .
+drwxr-xr-x 21 root root  4096 2007-07-18 21:30 ..
+drwxr-xr-x  2 root root  4096 2008-01-15 10:52 bin
+drwxr-xr-x  4 root root  1024 2007-07-17 21:18 boot
+lrwxrwxrwx  1 root root    11 2007-07-17 20:47 cdrom -> media/cdrom
+drwxr-xr-x 14 root root 13480 2008-02-06 13:53 dev
+drwxr-xr-x 77 root root  4096 2008-02-19 10:50 etc
+drwxr-xr-x  3 root root  4096 2007-08-30 10:41 home
+drwxr-xr-x  2 root root  4096 2007-07-17 20:50 initrd
+lrwxrwxrwx  1 root root    32 2007-07-17 21:05 initrd.img -> boot/initrd.img-2.6.20-15-server
+drwxr-xr-x 15 root root  4096 2008-01-15 10:53 lib
+drwx------  2 root root 16384 2007-07-17 20:47 lost+found
+drwxr-xr-x  5 root root  4096 2007-08-27 16:03 media
+drwxr-xr-x  2 root root  4096 2007-04-12 11:11 mnt
+drwxr-xr-x  2 root root  4096 2007-07-17 20:50 opt
+dr-xr-xr-x 66 root root     0 2008-02-06 13:52 proc
+drwxr-xr-x  2 root root  4096 2007-08-27 16:19 root
+drwxr-xr-x  2 root root  4096 2008-01-15 10:52 sbin
+drwxr-xr-x  2 root root  4096 2007-07-17 20:50 srv
+drwxr-xr-x 11 root root     0 2008-02-06 13:52 sys
+drwxrwxrwt  4 root root  4096 2008-02-26 23:11 tmp
+drwxr-xr-x 11 root root  4096 2008-02-18 14:13 usr
+drwxr-xr-x 14 root root  4096 2007-07-17 21:15 var
+lrwxrwxrwx  1 root root    29 2007-07-17 21:05 vmlinuz -> boot/vmlinuz-2.6.20-15-server
+.admin@google.com:/$cd ~/scrips
+.admin@google.com:~/scrips: ./takeovertheworld.sh
+processing script...
+.|===============================================|
+script complete.
+the world belongs to admin.

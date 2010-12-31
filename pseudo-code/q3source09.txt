@@ -1,0 +1,32 @@
+.static void CG_HasteTrail( centity_t *cent ) {
+	localEntity_t	*smoke;
+	vec3_t			origin;
+	int				anim;
+
+	if ( cent->trailTime > cg.time ) {
+		return;
+	}
+	anim = cent->pe.legs.animationNumber & ~ANIM_TOGGLEBIT;
+	if ( anim != LEGS_RUN && anim != LEGS_BACK ) {
+		return;
+	}
+
+	cent->trailTime += 100;
+	if ( cent->trailTime < cg.time ) {
+		cent->trailTime = cg.time;
+	}
+
+	VectorCopy( cent->lerpOrigin, origin );
+	origin[2] -= 16;
+
+.	smoke = CG_SmokePuff( origin, vec3_origin, 
+				  8, 
+				  1, 1, 1, 1,
+				  500, 
+				  cg.time,
+				  0,
+				  0,
+				  cgs.media.hastePuffShader );
+
+	smoke->leType = LE_SCALE_FADE;
+}
