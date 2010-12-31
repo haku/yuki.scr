@@ -1,0 +1,13 @@
+.c:>ping google.com
+
+Pinging google.com [64.233.167.99] with 32 bytes of data:
+
+Reply from 64.233.167.99: bytes=32 time=128ms TTL=239
+Reply from 64.233.167.99: bytes=32 time=125ms TTL=239
+Request timed out.
+Request timed out.
+
+Ping statistics for 64.233.167.99:
+    Packets: Sent = 4, Received = 2, Lost = 2 (50% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 125ms, Maximum = 128ms, Average = 126ms

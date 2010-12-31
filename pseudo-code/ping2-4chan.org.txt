@@ -1,0 +1,13 @@
+.c:>ping 4chan.org
+
+Pinging 4chan.org [66.207.165.166] with 32 bytes of data:
+
+Reply from 66.207.165.166: bytes=32 time=150ms TTL=39
+Reply from 66.207.165.166: bytes=32 time=149ms TTL=39
+Reply from 66.207.165.166: bytes=32 time=147ms TTL=39
+Reply from 66.207.165.166: bytes=32 time=146ms TTL=39
+
+Ping statistics for 66.207.165.166:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 146ms, Maximum = 150ms, Average = 148ms

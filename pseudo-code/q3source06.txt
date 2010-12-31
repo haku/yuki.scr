@@ -1,0 +1,53 @@
+.void CG_NewClientInfo( int clientNum ) {
+	clientInfo_t *ci;
+	clientInfo_t newInfo;
+	const char	*configstring;
+	const char	*v;
+	char		*slash;
+
+	ci = &cgs.clientinfo[clientNum];
+
+.	configstring = CG_ConfigString( clientNum + CS_PLAYERS );
+	if ( !configstring[0] ) {
+		memset( ci, 0, sizeof( *ci ) );
+		return;		// player just left
+	}
+
+
+	memset( &newInfo, 0, sizeof( newInfo ) );
+
+	v = Info_ValueForKey(configstring, "n");
+	Q_strncpyz( newInfo.name, v, sizeof( newInfo.name ) );
+
+	v = Info_ValueForKey( configstring, "c1" );
+	CG_ColorFromString( v, newInfo.color1 );
+
+	v = Info_ValueForKey( configstring, "c2" );
+	CG_ColorFromString( v, newInfo.color2 );
+
+	v = Info_ValueForKey( configstring, "skill" );
+	newInfo.botSkill = atoi( v );
+
+	v = Info_ValueForKey( configstring, "hc" );
+	newInfo.handicap = atoi( v );
+
+.	v = Info_ValueForKey( configstring, "w" );
+	newInfo.wins = atoi( v );
+
+	v = Info_ValueForKey( configstring, "l" );
+	newInfo.losses = atoi( v );
+
+	v = Info_ValueForKey( configstring, "t" );
+	newInfo.team = atoi( v );
+
+.	v = Info_ValueForKey( configstring, "tt" );
+	newInfo.teamTask = atoi(v);
+
+	v = Info_ValueForKey( configstring, "tl" );
+	newInfo.teamLeader = atoi(v);
+
+	v = Info_ValueForKey( configstring, "g_redteam" );
+	Q_strncpyz(newInfo.redTeam, v, MAX_TEAMNAME);
+
+	v = Info_ValueForKey( configstring, "g_blueteam" );
+	Q_strncpyz(newInfo.blueTeam, v, MAX_TEAMNAME);

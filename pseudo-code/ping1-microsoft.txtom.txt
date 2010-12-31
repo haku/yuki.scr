@@ -1,0 +1,11 @@
+.c:>ping microsoft.com
+
+Pinging microsoft.com [207.46.197.32] with 32 bytes of data:
+
+Request timed out.
+Request timed out.
+Request timed out.
+Request timed out.
+
+Ping statistics for 207.46.197.32:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss)

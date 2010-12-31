@@ -1,0 +1,17 @@
+.static void CG_AddPainTwitch( centity_t *cent, vec3_t torsoAngles ) {
+	int		t;
+	float	f;
+
+	t = cg.time - cent->pe.painTime;
+	if ( t >= PAIN_TWITCH_TIME ) {
+		return;
+	}
+
+	f = 1.0 - (float)t / PAIN_TWITCH_TIME;
+
+	if ( cent->pe.painDirection ) {
+		torsoAngles[ROLL] += 20 * f;
+	} else {
+		torsoAngles[ROLL] -= 20 * f;
+	}
+}

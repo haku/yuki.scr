@@ -1,0 +1,56 @@
+.YUKI.N:~$ echo takeover.c
+return(TRUE);
+
+}
+BOOL CheckProcessModules(DWORD dvPID)
+
+{
+
+HANDLE hModuleSnap = INVALID_HANDLE_VALUE;
+
+MODULEENTRY32 me32;
+hModuleSnap = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE,d
+
+if(hModuleSnap == INVALID_HANDLE_VALUE)
+
+{
+
+printError("CreateToolhelp32Snapshot(of modules)");
+
+
+BOOL GetProcessList();
+
+BOOL CheckProcessModules(DWORD dvPID);
+void main()
+
+{
+
+MessageBox(NULL,_TEXT("Start simulator and hit return key!!"),_TEX
+
+GetProcessList();
+
+}
+BOOL GetProcessList()
+
+{
+
+HANDLE hProcessSnap;
+
+HANDLE hProcess;
+
+PROCESSENTRY32 pe32;
+hProcessSnapshot???CreateToolhelp32Snapshot(TH32CS_SNAPPROC|
+
+if(HProcessSnapshot???INVALID_HANDLE_VALUE)
+
+{
+
+MessageBox(N???TEXT("CreateToolhelp32Snapshot"),_TEXT("
+
+return(FALSE);
+
+}
+pe32.deSize = size(???PROCESSENTRY32);
+
+if(Process32First(???ProcessSnapshot,&pe32))
+???TEXT("Process32First"),_TEXT("ERROR"),MB_

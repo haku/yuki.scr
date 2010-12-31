@@ -1,0 +1,18 @@
+.void CG_LoadDeferredPlayers( void ) {
+	int		i;
+	clientInfo_t	*ci;
+
+	// scan for a deferred player to load
+	for ( i = 0, ci = cgs.clientinfo ; i < cgs.maxclients ; i++, ci++ ) {
+		if ( ci->infoValid && ci->deferred ) {
+			// if we are low on memory, leave it deferred
+			if ( trap_MemoryRemaining() < 4000000 ) {
+				CG_Printf( "Memory is low.  Using deferred model.\n" );
+				ci->deferred = qfalse;
+				continue;
+			}
+			CG_LoadClientInfo( ci );
+//			break;
+		}
+	}
+}

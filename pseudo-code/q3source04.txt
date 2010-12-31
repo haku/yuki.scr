@@ -1,0 +1,27 @@
+.void CG_PredictPlayerState( void ) {
+	int			cmdNum, current;
+	playerState_t	oldPlayerState;
+	qboolean	moved;
+	usercmd_t	oldestCmd;
+	usercmd_t	latestCmd;
+
+	cg.hyperspace = qfalse;	
+
+
+.	if ( !cg.validPPS ) {
+		cg.validPPS = qtrue;
+		cg.predictedPlayerState = cg.snap->ps;
+	}
+
+
+
+.	if ( cg.demoPlayback || (cg.snap->ps.pm_flags & PMF_FOLLOW) ) {
+		CG_InterpolatePlayerState( qfalse );
+		return;
+	}
+
+
+.	if ( cg_nopredict.integer || cg_synchronousClients.integer ) {
+		CG_InterpolatePlayerState( qtrue );
+		return;
+	}
